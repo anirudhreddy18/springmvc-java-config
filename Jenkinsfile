@@ -7,4 +7,5 @@ pipeline {
                 echo "java -version" 
             }
         }
+    }    
 }
