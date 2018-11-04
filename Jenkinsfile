@@ -1,17 +1,27 @@
 pipeline {
-      agent {
-        docker {
-            image 'maven:3-alpine' 
-            args '-v /root/.m2:/root/.m2' 
+    agent { label 'dockerserver' } // if you don't have other steps, 'any' agent works
+    stages {
+        stage('Back-end') {
+            agent {
+                docker {
+                  label 'dockerserver'  // both label and image
+                  image 'maven:3-alpine'
+                }
+            }
+            steps {
+                sh 'mvn --version'
+            }
+        }
+        stage('Front-end') {
+            agent {
+              docker {
+                label 'dockerserver'  // both label and image
+                image 'node:7-alpine' 
+              }
+            }
+            steps {
+                sh 'node --version'
+            }
         }
     }
-    stages {
-        stage('Build') { 
-            steps {
-                echo "in build"
-                bat 'mvn --v'
-                //bat "docker build . -t tomcatwebapp"
-            }//steps
-        }//stage
-    }//stages    
-}//pipeline
+}
