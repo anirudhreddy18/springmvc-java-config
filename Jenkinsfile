@@ -5,7 +5,7 @@ pipeline {
             steps {
                 echo "in build"
                 bat 'mvn --v'
-                bat "docker build . -t tomcatwebapp"
+                //bat "docker build . -t tomcatwebapp"
             }//steps
         }//stage
     }//stages    
