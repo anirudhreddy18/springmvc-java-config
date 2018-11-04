@@ -10,7 +10,7 @@ pipeline {
         stage('Build') { 
             steps {
                 echo "in build"
-                sh 'mvn --v'
+                bat 'mvn --v'
             }//steps
         }//stage
     }//stages    
