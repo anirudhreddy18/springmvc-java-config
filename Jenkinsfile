@@ -4,7 +4,7 @@ pipeline {
         stage('Build') { 
             steps {
                 echo "in build"
-                bat 'mvn --version'
+                sh 'ls'
             }
         }
     }    
