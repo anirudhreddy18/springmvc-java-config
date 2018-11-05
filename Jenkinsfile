@@ -12,7 +12,7 @@ node
      
      stage('docker maven')
      {
-           bat 'docker --version'
+           bat 'docker images'
      }
 
 }
