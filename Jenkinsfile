@@ -1,6 +1,13 @@
-stage('build') {
-        node {
-            checkout scm
-               bat 'mvn --version'
-    }//node
-}//stage
+node
+{
+    stage('checkout scm')
+     {
+             checkout scm
+     }
+        
+     stage('build)
+     {
+        bat 'mvn --v'
+     }
+
+}
