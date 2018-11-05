@@ -12,8 +12,7 @@ node
      
      stage('docker maven')
      {
-           docker.image('maven:3-alpine').inside {
-            bat 'mvn --v'
+           bat 'docker --version'
         }
      }
 
